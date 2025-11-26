@@ -1,0 +1,54 @@
+{% extends 'banking/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <div class="jumbotron bg-light p-5 rounded">
+            <h1 class="display-4">Welcome to Prime Bank</h1>
+            <p class="lead">Secure, Reliable, and Modern Banking Solutions</p>
+            <hr class="my-4">
+            <p>Manage your finances with our comprehensive banking platform.</p>
+            {% if not user.is_authenticated %}
+                <div class="mt-4">
+                    <a class="btn btn-primary btn-lg me-3" href="{% url 'register' %}">Open Account</a>
+                    <a class="btn btn-outline-primary btn-lg" href="{% url 'login' %}">Login</a>
+                </div>
+            {% else %}
+                <div class="mt-4">
+                    <a class="btn btn-primary btn-lg" href="{% url 'dashboard' %}">Go to Dashboard</a>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                        <h5>Secure Banking</h5>
+                        <p>Your money is protected with advanced security measures.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                        <h5>24/7 Access</h5>
+                        <p>Bank anytime, anywhere with our online platform.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-hand-holding-usd fa-3x text-primary mb-3"></i>
+                        <h5>Easy Loans</h5>
+                        <p>Quick and easy loan application process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
